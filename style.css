@@ -1,0 +1,15 @@
+.columna{
+	margin-right: 2px;
+}
+.casilla{
+	margin-top: 2px;
+	width: 57px;
+	height: 57px;
+	background-color: white;
+}
+
+#tablero{
+	padding: 5px;
+	background: black;
+	display: flex;
+}
