@@ -127,3 +127,12 @@ function gano(juego, x, y) {
         return "empate";
     }
 }
+
+function persona(name,edad){
+    this.name = name;
+    this.edad = edad;
+
+    this.getEdad = function(){
+        return this.edad;
+    }
+}
