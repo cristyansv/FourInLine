@@ -1,4 +1,4 @@
-angular.module('fourline', [])
+angular.module('fourline', ['firebase'])
     .controller('four', ['$scope', '$http', function ($scope, $http) {
 
 		$scope.arreglo = [];
@@ -13,8 +13,11 @@ angular.module('fourline', [])
 			$scope.arreglo.push(colum);
 		}
 		
-		$scope.casilla = function(){
+		$scope.casilla = function($event){
 			console.log(this);
+			$event.target.className = "taken"
 		}
 
 	}]);
+	
+	var fourDB = new Firebase('fourinline.firebaseIO.com');

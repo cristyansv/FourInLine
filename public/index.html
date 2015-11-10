@@ -1,19 +1,21 @@
 <html ng-app="fourline">
 
 <head>
-	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src='js/firebase.js'></script>
 </head>
 
 <body ng-controller="four">
-	<div id="tablero">
-		<div class="columna" ng-repeat="column in arreglo">
-			<div class="casilla" ng-repeat="fila in column" ng-click="casilla()">
-		
-			</div>
-		</div>
-	</div>
-	<script src="js/angular.min.js"></script>
-	<script src="js/logica.js"></script>
+<div id="tablero">
+    <div class="columna" ng-repeat="column in arreglo">
+        <div class="casilla" ng-repeat="fila in column" ng-click="casilla($event)">
+        </div>
+    </div>
+</div>
+<script src='js/firebase.js'></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angularfire.min.js"></script>
+<script src="js/logica.js"></script>
+<script src="js/triqui.js"></script>
 </body>
-
 </html>
