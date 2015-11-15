@@ -1,3 +1,39 @@
+angular.module('triqui', ['firebase'])
+    .controller('four', ['$scope', '$http', function ($scope, $http) {
+
+        $scope.triqui = [];
+
+        for(var i=1; i<4; i++){
+            var colum = [];
+            for(var k=1; k<4; k++){
+                colum.push({
+                    name:"C"+i+"F"+k,
+                    val: null
+                });
+            }
+            $scope.triqui.push(colum);
+        }
+
+
+        var turno = true;
+
+        $scope.check = function() {
+            if (this.columna.val == null) {
+                if (turno) {
+                    this.columna.val = 1;
+                    turno = !turno;
+                } else {
+                    this.columna.val = 0;
+                    turno = !turno;
+                }
+                console.log(gano(parseGame($scope.triqui), 0, 1));
+            }
+        }
+    }]);
+
+var fourDB = new Firebase('fourinline.firebaseIO.com');
+
+
 var juego1 = [
     [1, 0, null],
     [1, null, 0],
@@ -126,6 +162,19 @@ function gano(juego, x, y) {
     }else{
         return "empate";
     }
+}
+
+function parseGame(juego){
+    var parse = [];
+
+    for(var i=0; i<3; i++){
+        var fila = [];
+        for(var k=0; k<3; k++){
+            fila.push(juego[i][k].val)
+        }
+        parse.push(fila);
+    }
+    return parse;
 }
 
 function persona(name,edad){

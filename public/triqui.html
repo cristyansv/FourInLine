@@ -1,0 +1,26 @@
+<html ng-app="triqui">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <script src='js/firebase.js'></script>
+</head>
+
+<body ng-controller="four">
+
+<!--tablero triqui-->
+
+<div id="triqui">
+    <div class="filaT" ng-repeat="fila in triqui">
+        <div class="columnaT" ng-repeat="columna in fila" ng-click="check()">
+            <div ng-if="columna.val == 0" class="cir">O</div>
+            <div ng-if="columna.val == 1" class="equis">X</div>
+        </div>
+    </div>
+</div>
+
+<script src='js/firebase.js'></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angularfire.min.js"></script>
+<script src="js/triqui.js"></script>
+</body>
+</html>
