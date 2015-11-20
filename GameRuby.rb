@@ -34,13 +34,15 @@ class Game
 
   def isValidMove(pos)
     x = pos/3
-    y = pos%3   
-    if(@board[x][y]!=nil||pos>=9)
-      return false
-    else
+    y = pos%3
+    
+    if(pos<9&&@board[x][y]==nil)
       return true
+    else
+      return false
     end
   end
+  
   def setGame(pos,player)
     x = pos/3
     y = pos%3
@@ -280,7 +282,7 @@ until (game.over?) do
     else
       puts "Ingresa una posicion valida"
       pos=gets
-      pos.chomp
+      pos.chomp!
     end
   end
     
